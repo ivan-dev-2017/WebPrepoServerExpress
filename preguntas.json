@@ -1,0 +1,28 @@
+[{
+	"id": 1,
+	"dificultad": 1,
+	"materia": 1,
+	"tiempo-segundos": 30,
+	"pregunta": "¿Cual es la velocidad de la luz en el vacío?",	
+	"respuesta": {
+		"A": "3.14 m/s"
+		,"B": "e m/s"
+		,"C": " 3·10⁸ m/s"
+		,"D": " 1000000000 m/s"
+	},
+	"correcta": "C"
+},
+{
+	"id": 2,
+	"dificultad": 3,
+	"materia": 4,
+	"tiempo-segundos": 60,
+	"pregunta": "¿Cual es la ecuación para determinar el trabajo realizado por una fuerza?",	
+	"respuesta": {
+		"A": "W = F· a"
+		,"B": "W = F· d cos Θ"
+		,"C": "W = F· F"
+		,"D": "W = F· V"
+	},
+	"correcta": "B"
+}]

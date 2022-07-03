@@ -1,0 +1,70 @@
+show dbs 
+use nombresVideos
+db.nombresVideos.save({fuente:'the pirate bay',nombre:'survivor 16',año:2002});
+db.nombresVideos.find()
+
+mongo
+use myblogs
+//collection
+db.articulos.insert({name:"mongoDB intro",tags:["nosql","db"]})
+db.articulos.find().pretty()
+
+var articleInfo={}
+articleInfo.name = "Mongo save example"
+articleInfo.author = "IVZ"
+articleInfo.metadata = {}
+articleInfo.metadata.authors=["Bob Sponja","Goku"]
+articleInfo.metadata.description="Test save mongoDB"
+articleInfo.metadata.creation_on = new Date()
+db.articulos.save(articleInfo)
+db.articulos.find().pretty()
+
+use nombresVideos
+db.dropDatabase();
+
+use myblogs
+db.createCollection("coleccionOtraForma")
+show collections
+
+use myblogs
+show collections
+db.coleccionOtraForma.drop()
+show collections
+###################################
+usuario administrador
+use admin 
+db.createUser(
+  {
+    user: "myServerAdmin",
+    pwd: "mipassword",
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+  }
+);
+#
+mongod.conf
+security:
+    authorization: enabled
+#
+use admin
+db.auth("myUserAdmin", passwordPrompt()) // or cleartext password
+#
+mongo --port 27017 -u myServerAdmin -p mipassword --authenticationDatabase admin
+#
+use prepo1
+db.createUser(
+  {
+    user: "prepoadmin",
+    pwd: "333",
+    roles: [ { role: "readWrite", db: "prepo1" } ]
+  }
+);
+#
+mongo localhost:27017/admin -u myServerAdmin -p mipassword
+#
+use admin
+db.grantRolesToUser(
+    "myServerAdmin",
+    [
+      { role: "readWrite", db: "prepo1" }
+    ]
+)
